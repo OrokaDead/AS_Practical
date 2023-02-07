@@ -1,0 +1,102 @@
+﻿@page
+@model _211787P_Practical_Assn.Pages.LoginModel
+@{
+}
+
+@Html.AntiForgeryToken()
+
+<link rel="stylesheet" href="~/css/login.css" />
+
+<body>
+    <div class="container mt-5">
+        <div class="content">
+
+            <div class="title">Login</div>
+
+            <br />
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <form method="post" enctype="multipart/form-data">
+                <div class="user-details-login">
+
+                    <div class="input-box-login">
+                        <label class="details" asp-for="LModel.Email"></label>
+                        <span asp-validation-for="LModel.Email" class="text-danger"></span>
+                        <input type="text" placeholder="enter your email" asp-for="LModel.Email">
+                    </div>
+
+                    <div class="input-box-login">
+                        <label class="details" asp-for="LModel.Password"></label>
+                        <input type="password" placeholder="enter your password" asp-for="LModel.Password" />
+                    </div>
+
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" asp-for="LModel.RememberMe" />
+                        <label class="form-check-label" asp-for="LModel.RememberMe">Remember Me?</label>
+                    </div>
+
+                    <br />
+
+                    <p>Don't have an account? <a asp-page="/Registration">Register Here</a> </p>
+
+                    <input type="hidden" id="hdnRecaptcha">
+                    <label id="generatedToken"></label>
+
+                    <div class="button">
+                        <input type="submit" value="Login" id="btnLogin">
+                    </div>
+@*                    <div>
+                        <a asp-action="ForgotPassword" style="text-decoration:none;">Forgot Password?</a>
+                    </div>*@
+                </div>
+            </form>
+
+        </div>
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script src="https://www.google.com/recaptcha/api.js?render=6LfuN1MkAAAAAMzJq158uGNj5xDob80PF8dLVllf"></script>
+
+<script type="text/javascript">
+    let btnRegister = document.getElementById("btnLogin");
+
+    $(document).ready(function () {
+
+        $(document).on('click', '#btnLogin', function (e) {
+            e.preventDefault();
+            grecaptcha.ready(function () {
+                grecaptcha.execute('6LfuN1MkAAAAAMzJq158uGNj5xDob80PF8dLVllf', { action: 'index' }).then(function (recaptchaToken) {
+                    $('#hdnRecaptcha').val(recaptchaToken);
+                    $('#generatedToken').html(recaptchaToken);
+                    $.post("/Login",
+                        {
+                            //headers: { 'Content-Type': 'application/json' },
+                            userName: $("#txtUserName").val(),
+                            userEmail: $("#txtUserEmail").val(),
+                            password: $("#txtUPassword").val(),
+                            confirmPassword: $("#txtUConfirmPassword").val(),
+                            reCaptchaToken: $('#hdnRecaptcha').val()
+                                        return true;
+
+                        })
+
+                        .done(function (result, status, xyz) {
+                            $("#generatedToken").html("Token Result: " + status + " " + recaptchaToken)
+                            form.requestSubmit(btnRegister);
+                        });
+
+                                .fail(function (result, status, error) {
+                            $("#generatedToken").html("Token Result: " + status + " " + error + " " + result.status + " " + result.statusText)
+                        });
+
+                });
+
+            });
+
+        });
+
+    });
+
+</script>

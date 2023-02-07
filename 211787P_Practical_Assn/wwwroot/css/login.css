@@ -1,0 +1,172 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+* {
+    /*margin: 0;
+    padding: 0;
+    box-sizing: border-box;*/
+    font-family: 'Poppins',sans-serif;
+}
+
+body {
+    background-color: #f3f5f9;
+}
+
+.content {
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+
+    .title::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 40px;
+        border-radius: 5px;
+        background: linear-gradient(135deg, #04f489, #4B0082);
+    }
+
+.content form .user-details-login {
+    display: block;
+    margin: 20px 0 12px 0;
+}
+
+form .user-details-login .input-box-login {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+form .input-box-login span.details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+form .input-box-login label.details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.user-details-login .input-box-login input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+    .user-details-login .input-box-login input:focus,
+    .user-details-login .input-box-login input:valid {
+        border-color: #9b59b6;
+    }
+
+.content form .user-details-login {
+    display: block;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+form .user-details-login .input-box-login {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+form .input-box-login span.details {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.user-details-login .input-box-login input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    font-size: 16px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid #ccc;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+    .user-details-login .input-box-login input:focus,
+    .user-details-login .input-box-login input:valid {
+        border-color: #9b59b6;
+    }
+
+form input[type="checkbox"] {
+    transform: scale(1.25);
+}
+
+form .button {
+    height: 45px;
+    margin: 35px 0
+}
+
+form .button {
+    height: 45px;
+    margin: 35px 0;
+}
+
+    form .button input {
+        height: 100%;
+        width: 20%;
+        border-radius: 5px;
+        right: 70%;
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: linear-gradient(135deg, #04f489, #4B0082);
+    }
+
+        form .button input:hover {
+            /* transform: scale(0.99); */
+            background: linear-gradient(-135deg, #04f489, #4B0082);
+        }
+
+@media(max-width: 584px) {
+    .container {
+        max-width: 100%;
+    }
+
+    form .user-details-login .input-box-login {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    form .category {
+        width: 100%;
+    }
+
+    .content form .user-details-login {
+        max-height: 300px;
+        overflow-y: scroll;
+    }
+
+    .user-details-login::-webkit-scrollbar {
+        width: 5px;
+    }
+}
+
+@media(max-width: 459px) {
+    .container .content .category {
+        flex-direction: column;
+    }
+}

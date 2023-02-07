@@ -1,0 +1,28 @@
+﻿@page
+@model _211787P_Practical_Assn.Pages.LogoutModel
+@{
+}
+
+<link rel="stylesheet" href="~/css/logout.css" />
+
+
+<div class="container mt-5">
+
+    <div class = "row justify-content-center">
+        <form method="post">
+
+            <p style="font-size: 25px; font-weight: 500;"> Are you sure you want to log out?</p>
+
+            <div class="button">
+                <input type="submit" asp-page-handler="Logout" value="Yes">
+            </div>
+            <div class="button">
+                <input type="submit" asp-page-handler="DontLogout" value="No">
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
